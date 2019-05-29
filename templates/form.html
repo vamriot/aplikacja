@@ -1,0 +1,364 @@
+<!-- extend base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Wypełnij formularz</h1>
+</div>
+
+<form role="form" action="/save" method="post">
+    <h3>Informacje podstawowe</h3>
+    <b>Płeć:</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="plec" value="1">Kobieta
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="plec" value="2">Mężczyzna
+        </label>
+    </div>
+    <div class="form-group">
+        <label for="age">Wiek:</label>
+        <select class="form-control" id="age" name="age" required>
+          <option>18-24</option>
+          <option>25-34</option>
+          <option>35-44</option>
+          <option>45-54</option>
+          <option>55-64</option>
+          <option>65+</option>
+        </select>
+    </div>
+    <div class="form-group">
+      <label for="place">Miejsce zamieszkania:</label>
+      <select class="form-control" id="place" name="place" required>
+        <option>Wieś</option>
+        <option>Miasto do 19 999</option>
+        <option>20 000 - 49 999</option>
+        <option>50 000 - 99 999</option>
+        <option>100 000 - 499 999</option>
+        <option>500 000 i więcej mieszkańców</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="income">Dochód na jedną osobę:</label>
+      <select class="form-control" id="income" name="income">
+        <option>Odmawiam odpowiedzi</option>
+        <option>do 999 zł</option>
+        <option>1000 - 1499 zł</option>
+        <option>1500 - 1999 zł</option>
+        <option>2000 - 2499 zł</option>
+        <option>2500 - 2999 zł</option>
+        <option>3000 + zł</option>
+      </select>
+    </div>
+    <b>Jak oceniasz swój stan zdrowia?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="health" value="1">Dobrze
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="health" value="2">Tak sobie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="health" value="3">Źle
+        </label>
+    </div>
+    <h3>Pytania dotyczące przyjmowanych leków</h3>
+    <div class="form-group">
+      <label for="q1">Co Pan(i) robi, gdy czuje się chory(a) bądź ma jakieś dolegliwości?</label>
+      <select class="form-control" id="q1" name="q1">
+        <option>Ograniczam się do zastosowania wypróbowanych domowych sposobów</option>
+        <option>Od razu idę do lekarza i stosuję przepisane leki</option>
+        <option>Nie idę do lekarza, stosuję leki lub środki farmaceutyczne dostępne bez recepty</option>
+        <option>Korzystam z usług medycyny niekonwencjonalnej</option>
+        <option>Nic nie robię - staram się przeczekać dolegliwości</option>
+        <option>Postępuję w inny sposób</option>
+      </select>
+    </div>
+    <b>Czy w ciągu ostatnich 12 miesięcy stosował(a) Pan(i) leki lub środki dostępne na receptę?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q2" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q2" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q2" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q2" value="4">Nie, ani razu
+          </label>
+    </div>
+    <h4><b>Czy w ciągu ostatnich 12 miesięcy stosował(a) Pan(i) dostępne bez recepty:</b></h4>
+    <b>środki przeciwbólowe i przeciwzapalne?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q3" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q3" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q3" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q3" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>leki na przeziębienie, ból gardła, grypę?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q4" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q4" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q4" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q4" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>witaminy, minerały, środki zwiększające odporność organizmu</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q5" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q5" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q5" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q5" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>środki łagodzące dolegliwości układu pokarmowego</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q6" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q6" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q6" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q6" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>środki poprawiające stan włosów, paznokci, skóry</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q7" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q7" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q7" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q7" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>środki wzmacniające stawy i kości</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q8" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q8" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q8" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q8" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>leki łagodzące objawy alergii, uczulenia</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q9" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q9" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q9" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q9" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>środki uspokajające i nasenne</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q10" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q10" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q10" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q10" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>leki nasercowe, poprawiające krążenie</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q11" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q11" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q11" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q11" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>środki poprawiające pamięć i koncentrację</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q12" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q12" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q12" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q12" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>środki wspomagające odchudzanie</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q13" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q13" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q13" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q13" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>odżywki, np. dla sportowców, kulturystów</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q14" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q14" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q14" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q14" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>środki wspomagające rzucenie palenia</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q15" value="1">TAK, wielorotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q15" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q15" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q15" value="4">Nie, ani razu
+          </label>
+    </div>
+    <div class="form-group">
+        <label for="q16">Ile przeciętnie wydaje Pan(i) na leki bez recepty i suplementy diety?</label>
+        <select class="form-control" id="q16" name="q16">
+          <option>0 zł</option>
+          <option>do 19 zł</option>
+          <option>20 - 49 zł</option>
+          <option>50 - 99 zł</option>
+          <option>powyżej 100 zł</option>
+          <option>powyżej 200 zł</option>
+        </select>
+    </div>
+
+    <h4><b>Czy stosując jakiś lek dostępny bez recepty po raz pierwszy...</b></h4>
+    <b>czyta Pan(i) dołączoną do niego ulotkę informacyjną? </b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q17" value="1">TAK, wielokrotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q17" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q17" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q17" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>konsultuje Pan(i) jego stosowanie z lekarzem lub farmaceutą? </b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q18" value="1">TAK, wielokrotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q18" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q18" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q18" value="4">Nie, ani razu
+          </label>
+    </div>
+    <b>sprawdza Pan(i) opinie i informacje o jego działaniu w internecie?</b>
+    <div class="form-group">
+        <label class="radio-inline">
+          <input type="radio" name="q19" value="1">TAK, wielokrotnie
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q19" value="2">TAK, kilka razy
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="q19" value="3">Tak, 1-2 razy
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="q19" value="4">Nie, ani razu
+          </label>
+    </div>
+    <div class="form-group">
+        <label for="q20">Czy Pana/Pani zdaniem stosowanie leków i środków dostępnych bez recepty może być szkodliwe dla zdrowia?
+          </label>
+        <select class="form-control" id="q20" name="q20">
+          <option>Zdecydowanie tak</option>
+          <option>Raczej tak</option>
+          <option>Trudno powiedzieć</option>
+          <option>Raczej nie</option>
+          <option>Zdecydowanie nie</option>
+        </select>
+    </div>
+    
+    <button type="submit" class="btn btn-default">Wyślij</button>
+</form>
+
+{% endblock %}
+
