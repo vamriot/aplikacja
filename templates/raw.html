@@ -4,14 +4,13 @@
 {% block content %}
 
 <div class="page-header">
-    <h1>Przesłane dane</h1>
+    <h1>Informacje podstawowe</h1>
 </div>
 
 <table class="table">
     <thead>
     <tr>
         <th>#</th>
-        <th>Data</th>
         <th>Płeć</th>
         <th>Wiek</th>
         <th>Miejsce zamieszkania</th>
@@ -24,7 +23,7 @@
     {% for element in formdata %}
     <tr>
         <td>{{ element.id }}</td>
-        <td>{{ element.created_at }}</td>
+    
         <td>{{ element.plec }}</td>
         <td>{{ element.age }}</td>
         <td>{{ element.place }}</td>

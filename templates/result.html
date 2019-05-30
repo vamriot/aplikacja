@@ -5,22 +5,245 @@
 
 <div class="page-header">
     <h1>Wyniki</h1>
-    <div id="chart_div"> </div>
 </div>
+
+<div id="chart_div1"> </div>
 
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
   google.load('visualization', '1', {'packages':['corechart']});
   google.setOnLoadCallback(drawChart);
-  google.setOnLoadCallback(drawChart2);
   function drawChart() {
-    var data = new google.visualization.DataTable();
-    data.addColumn('string', 'Question');
-    data.addColumn('number', 'Average answer');
-    data.addRows( {{ data|tojson }} );
-    var chart = new google.visualization.ColumnChart(
-            document.getElementById('chart_div'));
-    chart.draw(data, {legend: 'none', vAxis: {baseline: 0} });
+    var data_plec = new google.visualization.DataTable();
+    data_plec.addColumn('string', 'Question');
+    data_plec.addColumn('number', 'Liczba osób');
+    data_plec.addRows( {{ data_plec|tojson }} );
+    var chart1 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div1'));
+    chart1.draw(data_plec, {title: "Podział ankietowanych ze względu na płeć"});
   }
+</script>
 
-{% endblock %}
+<div id="chart_div2"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_age = new google.visualization.DataTable();
+    data_age.addColumn('string', 'Przedział wiekowy');
+    data_age.addColumn('number', 'Liczba osób');
+    data_age.addRows( {{ data_age|tojson }} );
+    var chart2 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div2'));
+    chart2.draw(data_age, {title: "Podział ankietowanych ze względu na wiek"});
+  }
+</script>
+
+<div id="chart_div3"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_place = new google.visualization.DataTable();
+    data_place.addColumn('string', 'Miejsce zamieszkania');
+    data_place.addColumn('number', 'Liczba osób');
+    data_place.addRows( {{ data_place|tojson }} );
+    var chart3 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div3'));
+    chart3.draw(data_place, {title: "Podział ankietowanych ze względu na miejsce zamieszkania"});
+  }
+</script>
+
+<div id="chart_div4"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_health = new google.visualization.DataTable();
+    data_health.addColumn('string', 'Ocena stanu zdrowia');
+    data_health.addColumn('number', 'Liczba osób');
+    data_health.addRows( {{ data_health|tojson }} );
+    var chart4 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div4'));
+    chart4.draw(data_health, {title: "Podział ankietowanych ze względu na samoocenę stanu zdrowia"});
+  }
+</script>
+
+<div id="chart_div5"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q1 = new google.visualization.DataTable();
+    data_q1.addColumn('string', 'Postępowanie w przypadku dolegliwości');
+    data_q1.addColumn('number', 'Liczba osób');
+    data_q1.addRows( {{ data_q1|tojson }} );
+    var chart5 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div5'));
+    chart5.draw(data_q1, {title: "Postępowanie w przypadku wystąpienia pewnych dolegliwości"});
+  }
+</script>
+
+<div id="chart_div6"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q2 = new google.visualization.DataTable();
+    data_q2.addColumn('string', 'Zażywanie leków na receptę');
+    data_q2.addColumn('number', 'Liczba osób');
+    data_q2.addRows( {{ data_q2|tojson }} );
+    var chart6 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div6'));
+    chart6.draw(data_q2, {title: "Czy w ciągu ostatnich 12 miesięcy stosował(a) Pan(i) leki lub środki dostępne na receptę?"});
+  }
+</script>
+
+<div id="chart_div12"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q3 = new google.visualization.DataTable();
+    data_q3.addColumn('string', 'Zażywanie leków bez recepty');
+    data_q3.addColumn('number', 'Liczba osób');
+    data_q3.addRows( {{ data_q3|tojson }} );
+    var chart12 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div12'));
+    chart12.draw(data_q3, {title: "Czy w ciągu ostatnich 12 miesięcy stosował(a) Pan(i) dostępne bez recepty środki przeciwbólowe i przeciwzapalne?"});
+  }
+</script>
+
+<div id="chart_div13"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q4 = new google.visualization.DataTable();
+    data_q4.addColumn('string', 'Zażywanie leków bez recepty');
+    data_q4.addColumn('number', 'Liczba osób');
+    data_q4.addRows( {{ data_q4|tojson }} );
+    var chart13 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div13'));
+    chart13.draw(data_q4, {title: "Czy w ciągu ostatnich 12 miesięcy stosował(a) Pan(i) dostępne bez recepty leki na przeziębienie, ból gardła, grypę?"});
+  }
+</script>
+
+<div id="chart_div14"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q5 = new google.visualization.DataTable();
+    data_q5.addColumn('string', 'Zażywanie leków bez recepty');
+    data_q5.addColumn('number', 'Liczba osób');
+    data_q5.addRows( {{ data_q5|tojson }} );
+    var chart14 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div14'));
+    chart14.draw(data_q5, {title: "Czy w ciągu ostatnich 12 miesięcy stosował(a) Pan(i) dostępne bez recepty witaminy, minerały, środki zwiększające odporność organizmu?"});
+  }
+</script>
+
+<div id="chart_div7"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q12 = new google.visualization.DataTable();
+    data_q12.addColumn('string', 'Cena leków');
+    data_q12.addColumn('number', 'Liczba osób');
+    data_q12.addRows( {{ data_q12|tojson }} );
+    var chart7 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div7'));
+    chart7.draw(data_q12, {title: "Ile przeciętnie wydaje Pan(i) w ciągu miesiąca na leki bez recepty i suplementy diety?"});
+  }
+</script>
+
+<div id="chart_div8"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q13 = new google.visualization.DataTable();
+    data_q13.addColumn('string', 'Ulotka');
+    data_q13.addColumn('number', 'Liczba osób');
+    data_q13.addRows( {{ data_q13|tojson }} );
+    var chart8 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div8'));
+    chart8.draw(data_q13, {title: "Czy stosując jakiś lek dostępny bez recepty po raz pierwszy czyta Pan(i) dołączoną do niego ulotkę informacyjną?"});
+  }
+</script>
+
+<div id="chart_div9"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q14 = new google.visualization.DataTable();
+    data_q14.addColumn('string', 'Konsultacje');
+    data_q14.addColumn('number', 'Liczba osób');
+    data_q14.addRows( {{ data_q14|tojson }} );
+    var chart9 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div9'));
+    chart9.draw(data_q14, {title: "Czy stosując jakiś lek dostępny bez recepty po raz pierwszy konsultuje Pan(i) jego stosowanie z lekarzem lub farmaceutą?"});
+  }
+</script>
+
+<div id="chart_div10"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q15 = new google.visualization.DataTable();
+    data_q15.addColumn('string', 'Internet');
+    data_q15.addColumn('number', 'Liczba osób');
+    data_q15.addRows( {{ data_q15|tojson }} );
+    var chart10 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div10'));
+    chart10.draw(data_q15, {title: "Czy stosując jakiś lek dostępny bez recepty po raz pierwszy sprawdza Pan(i) opinie i informacje o jego działaniu w internecie?"});
+  }
+</script>
+
+<div id="chart_div11"> </div>
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+  google.load('visualization', '1', {'packages':['corechart']});
+  google.setOnLoadCallback(drawChart);
+  function drawChart() {
+    var data_q16 = new google.visualization.DataTable();
+    data_q16.addColumn('string', 'Szkodliwość');
+    data_q16.addColumn('number', 'Liczba osób');
+    data_q16.addRows( {{ data_q16|tojson }} );
+    var chart11 = new google.visualization.ColumnChart(
+            document.getElementById('chart_div11'));
+    chart11.draw(data_q16, {title: "Czy Pana/Pani zdaniem stosowanie leków i środków dostępnych bez recepty może być szkodliwe dla zdrowia?"});
+  }
+</script>
+
+
+    {% endblock %}
