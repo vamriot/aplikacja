@@ -11,6 +11,7 @@
     <thead>
     <tr>
         <th>#</th>
+        <th>Data</th>
         <th>Płeć</th>
         <th>Wiek</th>
         <th>Miejsce zamieszkania</th>
@@ -23,7 +24,7 @@
     {% for element in formdata %}
     <tr>
         <td>{{ element.id }}</td>
-    
+        <td>{{ element.created_at}}</td>
         <td>{{ element.plec }}</td>
         <td>{{ element.age }}</td>
         <td>{{ element.place }}</td>

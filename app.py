@@ -13,8 +13,8 @@ db = SQLAlchemy(app)
 class Formdata(db.Model):
     __tablename__ = 'formdata'
     id = db.Column(db.Integer, primary_key=True)
-    #created_at = db.Column(db.DateTime, default=datetime.now)
-    plec = db.Column(db.String, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.now)
+    plec = db.Column(db.String)
     age = db.Column(db.String)
     place = db.Column(db.String)
     income = db.Column(db.String)
@@ -75,7 +75,7 @@ def show_result():
     for el in fd_list:
         if(el.plec=="Kobieta"):
             plecKobieta=plecKobieta+1
-        else:
+        if(el.plec=="Mężczyzna"):
             plecMezczyzna=plecMezczyzna+1
 
     data_plec=[['Kobiety', plecKobieta], ['Mężczyźni', plecMezczyzna]]
@@ -338,8 +338,7 @@ def show_result():
     data_q16=[['Zdecydowanie tak', q16_1],['Raczej tak', q16_2],['Trudno powiedzieć', q16_3],['Raczej nie', q16_4], ['Zdecydowanie nie', q16_5]]
 
 
-    return render_template('result.html', data_plec=data_plec, data_age=data_age, data_place=data_place, data_income=data_income, data_health=data_health, data_q1=data_q1, data_q2=data_q2, data_q3=data_q3, data_q4=data_q4, data_q5=data_q5, data_q12=data_q12, data_q13=data_q13, data_q14=data_q14, data_q15=data_q15, data_q16=data_q16) 
-
+    return render_template('result.html', data_plec=data_plec, data_age=data_age, data_place=data_place, data_income=data_income, data_health=data_health, data_q1=data_q1, data_q2=data_q2, data_q3=data_q3, data_q4=data_q4, data_q5=data_q5, data_q12=data_q12, data_q13=data_q13, data_q14=data_q14, data_q15=data_q15, data_q16=data_q16)  
 
 @app.route("/save", methods=['POST'])
 def save():
