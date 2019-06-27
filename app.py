@@ -3,10 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import statistics
 
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///formdata.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'True'
+app.config['SQLALCHEMY_DATABASE_URI'] ='postgres://rznabgpsmkkbav:a4338f9eebbf24be089c92d65b3698486e93e8fe82f586fd18a853a62f797ea0@ec2-174-129-27-158.compute-1.amazonaws.com:5432/d75iq8uoso2f7'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = 'True' 
 
 db = SQLAlchemy(app)
 
